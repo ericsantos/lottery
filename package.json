@@ -2,7 +2,7 @@
   "name": "lottery",
   "version": "0.0.1-a",
   "description": "generate six numbers of lottery",
-  "main": "app.js",
+  "main": "./app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
