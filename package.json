@@ -1,0 +1,19 @@
+{
+  "name": "lottery",
+  "version": "0.0.1-a",
+  "description": "generate six numbers of lottery",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ericsantos/lottery"
+  },
+  "author": "Eric Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericsantos/lottery/issues"
+  },
+  "homepage": "https://github.com/ericsantos/lottery"
+}
