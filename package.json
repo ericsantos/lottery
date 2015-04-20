@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ericsantos/lottery/issues"
   },
-  "homepage": "https://github.com/ericsantos/lottery"
+  "homepage": "https://github.com/ericsantos/lottery",
+  "dependencies": {
+    "minimist": "^1.1.1"
+  }
 }
