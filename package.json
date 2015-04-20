@@ -1,6 +1,6 @@
 {
   "name": "lotterynumbers",
-  "version": "0.0.3-a",
+  "version": "0.0.4-a",
   "description": "generate six numbers of lottery",
   "main": "./app.js",
   "scripts": {
