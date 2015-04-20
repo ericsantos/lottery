@@ -1,8 +1,8 @@
 {
   "name": "lotterynumbers",
-  "version": "0.0.4-a",
+  "version": "0.0.5-a",
   "description": "generate six numbers of lottery",
-  "main": "./app.js",
+  "main": "./lib/lotterynumbers.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +21,6 @@
   },
   "preferGlobal": "true",
   "bin": {
-    "lotterynumbers": "lib/lotterynumbers.js"
+    "lotterynumbers": "bin/lotterynumbers"
   }
 }
