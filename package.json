@@ -1,6 +1,6 @@
 {
-  "name": "lottery",
-  "version": "0.0.1-a",
+  "name": "lotterynumbers",
+  "version": "0.0.3-a",
   "description": "generate six numbers of lottery",
   "main": "./app.js",
   "scripts": {
@@ -18,5 +18,9 @@
   "homepage": "https://github.com/ericsantos/lottery",
   "dependencies": {
     "minimist": "^1.1.1"
+  },
+  "preferGlobal": "true",
+  "bin": {
+    "lotterynumbers": "lib/lotterynumbers.js"
   }
 }
