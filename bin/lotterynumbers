@@ -7,9 +7,9 @@ var Lottery = require('../lib/lotterynumbers');
 var printHelp = function(){
     console.log('Lottery (r) by Eric Santos');
     console.log('--help             Print this help.');
-    console.log('--totalNumbers     default is 6.');
-    console.log('--initialRange     default is 1.');
-    console.log('--finalRange       default is 60.');
+    console.log('--qtd              Quantity of numbers. default is 6.');
+    console.log('--min              Minimum number. default is 1.');
+    console.log('--max              Maximum number. default is 60.');
 };
 
 if(argv.help){
@@ -17,16 +17,16 @@ if(argv.help){
     process.exit();
 }
 
-var totalNumbers = 6,  initialRange=1, finalRange = 60;
+var qtd = 6,  min=1, max = 60;
 
-if(argv.totalNumbers){
-    totalNumbers = parseInt(argv.totalNumbers);
+if(argv.qtd){
+    qtd = parseInt(argv.qtd);
 }
-if(argv.initialRange){
-    initialRange = parseInt(argv.initialRange);
+if(typeof argv.min !== 'undefined'){
+    min = parseInt(argv.min);
 }
-if(argv.finalRange){
-    finalRange = parseInt(argv.finalRange);
+if(argv.max){
+    max = parseInt(argv.max);
 }
 
 var printNumber = function(element, index, array) {
@@ -34,7 +34,7 @@ var printNumber = function(element, index, array) {
 };
 
 try{
-    var lottery = new Lottery(totalNumbers, initialRange, finalRange);
+    var lottery = new Lottery(qtd, min, max);
     lottery.generateNumbers().forEach(printNumber);
 }catch (err){
     console.log('Error: '+ err);

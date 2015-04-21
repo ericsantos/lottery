@@ -1,2 +1,2 @@
-# lottery
-Generate the six numbers of lottery
+# Lottery
+Library and command line that generates numbers for lottery.

@@ -1,6 +1,6 @@
 {
   "name": "lotterynumbers",
-  "version": "0.0.5-a",
+  "version": "0.0.6-a",
   "description": "generate six numbers of lottery",
   "main": "./lib/lotterynumbers.js",
   "scripts": {
@@ -19,8 +19,14 @@
   "dependencies": {
     "minimist": "^1.1.1"
   },
+  "scripts": {
+    "test": "mocha"
+  },
   "preferGlobal": "true",
   "bin": {
     "lotterynumbers": "bin/lotterynumbers"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4"
   }
 }
