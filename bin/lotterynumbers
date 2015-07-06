@@ -1,41 +1,77 @@
 #! /usr/bin/env node
 
-var argv = require('minimist')(process.argv.slice(2));
+var Lottery = require('../lib/lotterynumbers'),
+    dateFormat = require('dateformat'),
+    data = require('prettiest')(),
+    argv = require('minimist')(process.argv.slice(2));
 
-var Lottery = require('../lib/lotterynumbers');
 
-var printHelp = function(){
-    console.log('Lottery (r) by Eric Santos');
-    console.log('--help             Print this help.');
-    console.log('--qtd              Quantity of numbers. default is 6.');
-    console.log('--min              Minimum number. default is 1.');
-    console.log('--max              Maximum number. default is 60.');
-};
+var _printHelp = function () {
+        console.log('Lottery (r) by Eric Santos');
+        console.log('--help             Print this help.');
+        console.log('--history          Print all history of numbers generated. Adding "clear" for remove all history.');
+        console.log('--qtd              Quantity of numbers. default is 6.');
+        console.log('--min              Minimum number. default is 1.');
+        console.log('--max              Maximum number. default is 60.');
+    },
+    _printNumber = function (element) {
+        console.log(element);
+    };
 
-if(argv.help){
-    printHelp();
+
+if (argv.help) {
+    _printHelp();
     process.exit();
 }
 
-var qtd = 6,  min=1, max = 60;
+if (argv.history) {
 
-if(argv.qtd){
+    if (argv.history === 'clear') {
+        data.history = [];
+        console.log('History was removed!');
+    }
+
+    if (!data.history) {
+
+        data.history = [];
+
+        console.log('No history!');
+
+    } else {
+
+        data.history.forEach(function (e) {
+
+            console.log(dateFormat(e.createdAt, 'mmmm dS, yyyy, h:MM:ss') + ' -> ' + e.numbers.join(' '));
+
+        });
+    }
+
+    process.exit();
+}
+
+var qtd = 6, min = 1, max = 60;
+
+if (argv.qtd) {
     qtd = parseInt(argv.qtd);
 }
-if(typeof argv.min !== 'undefined'){
+if (typeof argv.min !== 'undefined') {
     min = parseInt(argv.min);
 }
-if(argv.max){
+if (argv.max) {
     max = parseInt(argv.max);
 }
 
-var printNumber = function(element, index, array) {
-    console.log(element);
-};
 
-try{
+try {
     var lottery = new Lottery(qtd, min, max);
-    lottery.generateNumbers().forEach(printNumber);
-}catch (err){
-    console.log('Error: '+ err);
+
+    var numbersGenerated = lottery.generateNumbers();
+
+    data.history = data.history || [];
+
+    data.history.push({numbers: numbersGenerated, createdAt: new Date()});
+
+    numbersGenerated.forEach(_printNumber);
+} catch (err) {
+    console.log('Error: ' + err);
 }
