@@ -1,6 +1,6 @@
 {
   "name": "lotterynumbers",
-  "version": "0.0.7",
+  "version": "0.0.7-a",
   "description": "generate six numbers of lottery",
   "main": "./lib/lotterynumbers.js",
   "scripts": {
